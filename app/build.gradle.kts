@@ -3,10 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
-kotlin {
-    jvmToolchain(11)
-}
-
 android {
     namespace = "com.example.calculmaxime"
     compileSdk = 35
