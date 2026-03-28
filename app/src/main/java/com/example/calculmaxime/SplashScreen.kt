@@ -109,8 +109,8 @@ fun SplashScreen(onSplashComplete: () -> Unit) {
 
         // ── Position finale de la tête (centre de la tête dans l'image) ──────
         val headFinalX = imgLeft + imgW * 0.50f
-        val headFinalY = imgTop  + imgH * 0.38f
-        val headRadius = imgW * 0.30f
+        val headFinalY = imgTop  + imgH * 0.48f
+        val headRadius = imgW * 0.44f
         val headStartY = -headRadius * 2f            // commence au-dessus de l'écran
 
         // Capture des valeurs animées pour le Canvas
