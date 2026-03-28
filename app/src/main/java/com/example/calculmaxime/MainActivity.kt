@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -29,8 +30,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CalculMaximeTheme {
-                Surface(modifier = Modifier.fillMaxSize()) {
-                    CalculMaximeApp()
+                var showSplash by remember { mutableStateOf(true) }
+                Crossfade(targetState = showSplash, label = "splash_transition") { isSplash ->
+                    if (isSplash) {
+                        SplashScreen(onSplashComplete = { showSplash = false })
+                    } else {
+                        Surface(modifier = Modifier.fillMaxSize()) {
+                            CalculMaximeApp()
+                        }
+                    }
                 }
             }
         }
